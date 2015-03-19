@@ -20,8 +20,6 @@ def decode_caesar(ciphertext, offset):
             output += char
         except InvalidCharError:
             output += char
-
-
     return output
 
 
