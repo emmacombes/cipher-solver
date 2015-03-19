@@ -1,2 +1,2 @@
-class InvalidCharError():
+class InvalidCharError(Exception):
     pass

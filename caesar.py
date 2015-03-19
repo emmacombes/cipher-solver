@@ -1,4 +1,5 @@
-from util import get_input, get_int_input
+from util import get_input, get_int_input, char_to_int, int_to_char
+from errors import InvalidCharError
 
 
 def decode_caesar(ciphertext, offset):
@@ -8,7 +9,20 @@ def decode_caesar(ciphertext, offset):
      "SGHR HR Z SDRS." should return "THIS IS A TEST." (note that punctuation
      is preserved)
     """
-    return ciphertext
+    output = ''
+
+    for char in ciphertext:
+        try:
+            integer = char_to_int(char)
+            integer += offset
+            integer = integer % 26
+            char = int_to_char(integer)
+            output += char
+        except InvalidCharError:
+            output += char
+
+
+    return output
 
 
 def solve_caesar(ciphertext):

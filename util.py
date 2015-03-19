@@ -26,8 +26,8 @@ def char_to_int(char):
     if -1 < value < 26:
         return value
 
-    raise InvalidCharacterException("The char '%s' is not in A-Z" % char)
+    raise InvalidCharError("The char '%s' is not in A-Z" % char)
 
 
 def int_to_char(int):
-    return char(int);
+    return chr(int + 65);
