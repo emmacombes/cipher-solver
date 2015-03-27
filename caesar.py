@@ -14,13 +14,14 @@ def decode_caesar(ciphertext, offset):
     for char in ciphertext:
         try:
             integer = char_to_int(char)
-            integer += offset
+            integer -= offset
             integer = integer % 26
             char = int_to_char(integer)
             output += char
         except InvalidCharError:
             output += char
     return output
+
 
 
 def solve_caesar(ciphertext):
